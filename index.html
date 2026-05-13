@@ -3,222 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS GHOST | QUANTUM ASSET ACQUISITION</title>
+    <title>NEXUS GHOST | GLOBAL ASSET ACQUISITION</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --cyan: #00f2ff;
-            --magenta: #ff00ff;
-            --green: #39ff14;
-            --bg: #020617;
-        }
-        body {
-            background-color: var(--bg);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            background-image: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
-        }
+        :root { --cyan: #00f2ff; --magenta: #ff00ff; --bg: #010409; }
+        body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; }
         .mono { font-family: 'JetBrains Mono', monospace; }
-        
-        /* Glassmorphism & Hologram Effects */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0, 242, 255, 0.15);
-            border-radius: 1.5rem;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-panel:hover {
-            border-color: var(--cyan);
-            box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        /* Animated Grid Background */
-        .grid-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            transform: perspective(500px) rotateX(60deg);
-            transform-origin: top;
-            animation: moveGrid 20s linear infinite;
-        }
-        @keyframes moveGrid {
-            from { background-position: 0 0; }
-            to { background-position: 0 1000px; }
-        }
-
-        /* Neon Pulse */
-        .pulse { animation: pulseAnim 2s infinite; }
-        @keyframes pulseAnim {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 10px; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(0, 242, 255, 0.1); }
+        .sidebar { transition: all 0.3s ease-in-out; }
+        @media (max-width: 1024px) { .sidebar { transform: translateX(-100%); position: fixed; z-index: 100; } .sidebar.active { transform: translateX(0); } }
+        .scan-line { height: 1px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); animation: scan 3s infinite; }
+        @keyframes scan { 0% { transform: translateY(0); } 100% { transform: translateY(400px); } }
     </style>
 </head>
-<body class="min-h-screen border-t-4 border-cyan-500">
+<body class="flex min-h-screen overflow-x-hidden">
 
-    <div class="grid-bg"></div>
-
-    <nav class="sticky top-0 z-50 w-full px-6 py-4 flex justify-between items-center border-b border-white/5 backdrop-blur-xl">
-        <div class="flex items-center gap-3">
-            <div class="w-8 h-8 bg-cyan-500 rounded-lg flex items-center justify-center font-black text-black">N</div>
-            <span class="text-2xl font-black tracking-tighter uppercase italic">Nexus <span class="text-cyan-400">Ghost</span></span>
+    <aside id="sidebar" class="sidebar w-72 h-screen glass border-r border-white/5 flex flex-col p-6 shrink-0">
+        <div class="mb-12">
+            <h1 class="text-2xl font-black italic tracking-tighter text-cyan-400">NEXUS GHOST</h1>
+            <p class="text-[10px] opacity-40 uppercase tracking-[0.3em] font-bold">Autonomous Mining</p>
         </div>
-        <div class="hidden lg:flex items-center gap-8 text-xs font-bold tracking-[0.2em] opacity-60">
-            <a href="#" class="hover:text-cyan-400 transition-colors">DATABASE</a>
-            <a href="#" class="hover:text-cyan-400 transition-colors">ALGORITHMS</a>
-            <a href="#" class="hover:text-cyan-400 transition-colors">SECURITY</a>
-        </div>
-        <div class="flex items-center gap-4">
-            <div class="flex items-center gap-2 bg-green-500/10 px-3 py-1 rounded border border-green-500/30">
-                <div class="w-2 h-2 bg-green-500 rounded-full pulse"></div>
-                <span class="text-[10px] font-bold text-green-400">CORE ONLINE</span>
-            </div>
-        </div>
-    </nav>
-
-    <main class="max-w-7xl mx-auto px-6 py-12 lg:py-24">
         
-        <div class="grid lg:grid-cols-2 gap-16 items-center mb-32">
-            <div>
-                <h1 class="text-6xl lg:text-8xl font-black mb-8 leading-[0.9] tracking-tighter">
-                    UNCOVER THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-magenta-500">GHOSTS</span> OF ASSETS
-                </h1>
-                <p class="text-xl text-slate-400 mb-10 max-w-lg leading-relaxed">
-                    AI-driven neural mining for abandoned digital empires. Access high-value domains and projects before the market reacts.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <button class="bg-cyan-500 text-black font-black px-10 py-5 rounded-xl hover:bg-white transition-all shadow-[0_0_30px_rgba(0,242,255,0.3)]">
-                        INITIALIZE PROTOCOL
-                    </button>
-                    <button class="bg-white/5 border border-white/10 px-10 py-5 rounded-xl hover:bg-white/10 transition-all">
-                        VIEW METHODOLOGY
-                    </button>
-                </div>
+        <nav class="space-y-8 flex-1">
+            <div class="space-y-2">
+                <span class="text-[10px] font-bold opacity-30 uppercase">Operational</span>
+                <a href="#" class="flex items-center gap-3 text-sm font-bold text-cyan-400 p-3 bg-white/5 rounded-xl">OVERVIEW</a>
+                <a href="#" class="flex items-center gap-3 text-sm font-bold opacity-60 hover:opacity-100 p-3 transition-all">DATA NODES</a>
+                <a href="#" class="flex items-center gap-3 text-sm font-bold opacity-60 hover:opacity-100 p-3 transition-all">MARKET PULSE</a>
             </div>
+            <div class="space-y-2">
+                <span class="text-[10px] font-bold opacity-30 uppercase">Infrastructure</span>
+                <a href="#" class="flex items-center gap-3 text-sm font-bold opacity-60 hover:opacity-100 p-3 transition-all">ABOUT US</a>
+                <a href="#" class="flex items-center gap-3 text-sm font-bold opacity-60 hover:opacity-100 p-3 transition-all">SECURITY MATRIX</a>
+                <a href="#" class="flex items-center gap-3 text-sm font-bold opacity-60 hover:opacity-100 p-3 transition-all">API DOCS</a>
+            </div>
+        </nav>
+
+        <div class="pt-6 border-t border-white/10 text-xs opacity-40 mono uppercase">
+            ID: TOBRUK_NODE_01
+        </div>
+    </aside>
+
+    <main class="flex-1 h-screen overflow-y-auto relative">
+        
+        <header class="sticky top-0 z-40 glass border-b border-white/5 px-8 py-5 flex justify-between items-center">
+            <button onclick="document.getElementById('sidebar').classList.toggle('active')" class="lg:hidden text-cyan-400 font-bold">MENU</button>
+            <div class="hidden md:flex gap-8 text-[11px] font-bold tracking-widest opacity-60 uppercase">
+                <span>SYSTEM STATUS: <span class="text-green-400">OPTIMIZED</span></span>
+                <span>LATENCY: <span class="text-cyan-400">14ms</span></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="px-4 py-1.5 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold rounded-full">ENCRYPTED SESSION</div>
+            </div>
+        </header>
+
+        <div class="p-8 lg:p-16 max-w-6xl mx-auto">
             
-            <div class="glass-panel p-8 grid grid-cols-2 gap-6">
-                <div class="space-y-1">
-                    <span class="block text-[10px] opacity-40 uppercase tracking-widest">Global Scans</span>
-                    <span class="text-3xl font-black mono text-cyan-400">482.9M</span>
+            <section class="mb-20">
+                <h2 class="text-5xl lg:text-7xl font-black mb-8 leading-tight tracking-tighter">THE MISSION: <br>BEYOND THE <span class="text-cyan-400">VOID.</span></h2>
+                <div class="glass p-8 rounded-3xl border-l-4 border-l-cyan-500">
+                    <h3 class="font-bold text-lg mb-4">WHO WE ARE</h3>
+                    <p class="text-slate-400 leading-relaxed text-lg">Nexus Ghost is a proprietary neural-mining infrastructure designed to scan, analyze, and secure abandoned digital assets globally. We bridge the gap between forgotten digital empires and modern investment capital through high-speed AI analysis.</p>
                 </div>
-                <div class="space-y-1 text-right">
-                    <span class="block text-[10px] opacity-40 uppercase tracking-widest">Success Rate</span>
-                    <span class="text-3xl font-black mono text-magenta-500">99.4%</span>
-                </div>
-                <div class="col-span-2 pt-6 border-t border-white/5">
-                    <span class="block text-[10px] opacity-40 mb-4 uppercase tracking-widest">AI Mining Logs</span>
-                    <div class="terminal-window bg-black/40 rounded-lg p-4 h-32 overflow-hidden custom-scrollbar">
-                        <div class="text-[11px] mono text-green-400 space-y-1">
-                            <p>> Connecting to WHOIS global nodes...</p>
-                            <p>> Filtered 1.2M expiring domains...</p>
-                            <p class="text-white">> [MATCH] crypto-vault.org | Authority: 84/100</p>
-                            <p class="text-cyan-400">> Extracting historical valuation data...</p>
-                            <p>> Bypassing latency gates...</p>
-                            <p class="text-magenta-500">> High value target locked: tech-core.io</p>
-                        </div>
+            </section>
+
+            <div class="flex gap-4 mb-10 overflow-x-auto pb-4">
+                <button class="bg-cyan-500 text-black px-6 py-2 rounded-full font-bold text-xs uppercase">All Sectors</button>
+                <button class="bg-white/5 border border-white/10 px-6 py-2 rounded-full font-bold text-xs uppercase opacity-60">Finance</button>
+                <button class="bg-white/5 border border-white/10 px-6 py-2 rounded-full font-bold text-xs uppercase opacity-60">Tech</button>
+                <button class="bg-white/5 border border-white/10 px-6 py-2 rounded-full font-bold text-xs uppercase opacity-60">Automotive</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-20">
+                <div class="glass p-10 rounded-3xl relative overflow-hidden group">
+                    <div class="scan-line absolute top-0 left-0 w-full opacity-20"></div>
+                    <div class="flex justify-between items-center mb-16">
+                        <span class="text-[10px] mono text-magenta-500 font-bold">STRATEGIC ASSET</span>
+                        <div class="w-2 h-2 bg-green-500 rounded-full shadow-[0_0_10px_#39ff14]"></div>
                     </div>
+                    <h4 class="text-4xl font-bold mb-4 tracking-tight">AI-Global.io</h4>
+                    <p class="text-sm opacity-40 mono mb-12 uppercase font-bold tracking-widest">ESTIMATED VALUATION: $42,500</p>
+                    <button class="w-full py-5 bg-white text-black font-black rounded-2xl hover:bg-cyan-500 transition-all text-xl uppercase italic">Secure Asset</button>
+                </div>
+
+                <div class="glass p-10 rounded-3xl relative overflow-hidden group">
+                    <div class="flex justify-between items-center mb-16">
+                        <span class="text-[10px] mono text-cyan-400 font-bold">FINANCE CORE</span>
+                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                    </div>
+                    <h4 class="text-4xl font-bold mb-4 tracking-tight">V-Wealth.net</h4>
+                    <p class="text-sm opacity-40 mono mb-12 uppercase font-bold tracking-widest">ESTIMATED VALUATION: $18,200</p>
+                    <button class="w-full py-5 bg-white text-black font-black rounded-2xl hover:bg-cyan-500 transition-all text-xl uppercase italic">Secure Asset</button>
                 </div>
             </div>
+
+            <section class="grid lg:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-2xl border border-white/5 text-center">
+                    <span class="block text-4xl mb-4">🛡️</span>
+                    <h5 class="font-bold mb-2">Neural Guard</h5>
+                    <p class="text-xs opacity-50">Advanced AES-256 bit encryption for all acquisition protocols.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl border border-white/5 text-center">
+                    <span class="block text-4xl mb-4">🌍</span>
+                    <h5 class="font-bold mb-2">Global Reach</h5>
+                    <p class="text-xs opacity-50">Mining nodes active in over 42 strategic global regions.</p>
+                </div>
+                <div class="glass p-8 rounded-2xl border border-white/5 text-center">
+                    <span class="block text-4xl mb-4">⚡</span>
+                    <h5 class="font-bold mb-2">Zero Latency</h5>
+                    <p class="text-xs opacity-50">Real-time valuation engine updates every 0.04 seconds.</p>
+                </div>
+            </section>
+
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-            <div class="glass-panel p-8 group">
-                <div class="flex justify-between items-start mb-12">
-                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:border-cyan-500 transition-colors">
-                        <div class="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                    </div>
-                    <span class="bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded text-[10px] font-bold mono">TECH SECTOR</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-2">Cloud-AI.net</h3>
-                <p class="text-sm opacity-50 mb-8 mono">#4491-X-GHOST</p>
-                <div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-8">
-                    <div>
-                        <span class="block text-[10px] opacity-40 uppercase">Est. Value</span>
-                        <span class="text-xl font-bold text-green-400">$24,000</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="block text-[10px] opacity-40 uppercase">AI Score</span>
-                        <span class="text-xl font-bold">98%</span>
-                    </div>
-                </div>
+        <footer class="mt-20 p-16 glass border-t border-white/10 text-center">
+            <h2 class="text-3xl font-black mb-8 uppercase tracking-widest">Acquire Control Key</h2>
+            <button class="bg-cyan-500 text-black font-black px-16 py-6 rounded-2xl text-2xl hover:scale-105 active:scale-95 transition-all shadow-2xl uppercase italic">Purchase License</button>
+            <div class="mt-20 flex flex-wrap justify-center gap-10 text-[10px] font-bold opacity-30 uppercase tracking-[0.2em]">
+                <span>Network: Encrypted</span>
+                <span>Location: Tobruk Core</span>
+                <span>Team: Sudan Nexus</span>
             </div>
-
-            <div class="glass-panel p-8 group border-magenta-500/20">
-                <div class="flex justify-between items-start mb-12">
-                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:border-magenta-500 transition-colors">
-                        <div class="w-2 h-2 bg-magenta-500 rounded-full"></div>
-                    </div>
-                    <span class="bg-magenta-500/10 text-magenta-400 px-3 py-1 rounded text-[10px] font-bold mono">FINANCE</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-2">Global-Trade.org</h3>
-                <p class="text-sm opacity-50 mb-8 mono">#7712-B-GHOST</p>
-                <div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-8">
-                    <div>
-                        <span class="block text-[10px] opacity-40 uppercase">Est. Value</span>
-                        <span class="text-xl font-bold text-green-400">$18,500</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="block text-[10px] opacity-40 uppercase">AI Score</span>
-                        <span class="text-xl font-bold">94%</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="glass-panel p-8 group">
-                <div class="flex justify-between items-start mb-12">
-                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 group-hover:border-cyan-500 transition-colors">
-                        <div class="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                    </div>
-                    <span class="bg-cyan-500/10 text-cyan-400 px-3 py-1 rounded text-[10px] font-bold mono">COMMERCE</span>
-                </div>
-                <h3 class="text-3xl font-bold mb-2">Luxury-Mall.xyz</h3>
-                <p class="text-sm opacity-50 mb-8 mono">#1029-A-GHOST</p>
-                <div class="grid grid-cols-2 gap-4 border-t border-white/5 pt-8">
-                    <div>
-                        <span class="block text-[10px] opacity-40 uppercase">Est. Value</span>
-                        <span class="text-xl font-bold text-green-400">$7,200</span>
-                    </div>
-                    <div class="text-right">
-                        <span class="block text-[10px] opacity-40 uppercase">AI Score</span>
-                        <span class="text-xl font-bold">91%</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="glass-panel p-12 text-center relative overflow-hidden">
-            <div class="relative z-10">
-                <h2 class="text-4xl font-bold mb-6">READY TO TAKE CONTROL?</h2>
-                <p class="text-slate-400 mb-10 max-w-xl mx-auto">The Ghost Hunter engine is currently scanning 1.4 million nodes per second. One license grants you absolute access.</p>
-                <button class="bg-white text-black font-black px-16 py-6 rounded-2xl text-2xl hover:bg-cyan-500 transition-all shadow-2xl">
-                    PURCHASE ACCESS KEY
-                </button>
-            </div>
-            <div class="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        </div>
+        </footer>
 
     </main>
 
-    <footer class="py-20 px-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-xl font-black italic tracking-tighter">NEXUS GHOST</div>
-            <div class="flex gap-12 text-[10px] font-bold tracking-widest opacity-40 uppercase">
-                <span>Network: Encrypted</span>
-                <span>Node: Tobruk_Sudan_01</span>
-                <span>All Rights Reserved 2026</span>
-            </div>
-        </div>
-    </footer>
-
+    <script>
+        // Simple logic to ensure sidebar works on mobile
+        document.body.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024 && !document.getElementById('sidebar').contains(e.target) && e.target.tagName !== 'BUTTON') {
+                document.getElementById('sidebar').classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
