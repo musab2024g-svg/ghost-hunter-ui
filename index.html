@@ -1,106 +1,100 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE GHOST HUNTER | NEXUS O2</title>
+    <title>NEXUS O2 | Ghost Hunter Enterprise</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #050505;
-            color: #00f2ff;
-            font-family: 'Courier New', Courier, monospace;
-            overflow: hidden;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
-        /* تأثير الثقب الدودي */
-        #wormhole-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .hero-gradient {
+            background: radial-gradient(circle at center, #112244 0%, #0a0a0a 70%);
+        }
+        .nebula {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.3;
             z-index: -1;
+            animation: drift 60s linear infinite;
         }
-        .glass-panel {
-            background: rgba(0, 242, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 242, 255, 0.2);
-            border-radius: 15px;
+        @keyframes drift {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
         }
-        .scanning-line {
-            height: 2px;
-            background: #00f2ff;
-            box-shadow: 0 0 15px #00f2ff;
-            position: absolute;
-            width: 100%;
-            animation: scan 3s linear infinite;
-        }
-        @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
+        .status-dot {
+            width: 8px; height: 8px; background: #10b981;
+            border-radius: 50%; display: inline-block;
+            box-shadow: 0 0 10px #10b981;
         }
     </style>
 </head>
-<body class="flex items-center justify-center h-screen">
+<body>
 
-    <canvas id="wormhole-canvas"></canvas>
+    <div class="nebula"></div>
 
-    <div class="glass-panel p-8 text-center max-w-lg relative overflow-hidden">
-        <div class="scanning-line"></div>
-        <h1 class="text-3xl font-bold mb-4 tracking-widest uppercase">THE GHOST HUNTER</h1>
-        <p class="text-sm opacity-70 mb-6 italic">"Accessing the Unreachable"</p>
-        
-        <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="p-4 border border-cyan-900 rounded">
-                <span class="block text-xs uppercase opacity-50">Assets Scanned</span>
-                <span class="text-xl font-bold" id="assets-count">1,248</span>
-            </div>
-            <div class="p-4 border border-cyan-900 rounded">
-                <span class="block text-xs uppercase opacity-50">Ghost Domains Found</span>
-                <span class="text-xl font-bold text-yellow-400" id="ghost-count">12</span>
+    <nav class="flex justify-between items-center px-8 py-6 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+        <div class="text-2xl font-bold tracking-tighter text-cyan-400">NEXUS <span class="text-white">O2</span></div>
+        <div class="flex items-center gap-4">
+            <span class="text-xs opacity-50 uppercase tracking-widest">System Status:</span>
+            <div class="flex items-center gap-2 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                <div class="status-dot"></div>
+                <span class="text-xs font-mono">OPERATIONAL</span>
             </div>
         </div>
+    </nav>
 
-        <button class="bg-cyan-600 hover:bg-cyan-500 text-black font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-[0_0_20px_#00f2ff]">
-            ENTER THE NEXUS
-        </button>
-    </div>
+    <section class="hero-gradient min-h-[802vh] flex flex-col items-center justify-center text-center px-4 py-20">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight">
+            نقب عن <span class="text-cyan-400">الأصول الرقمية</span> <br>التي نسيها العالم.
+        </h1>
+        <p class="text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
+            استخدم قوة الذكاء الاصطناعي "Ghost Hunter" للوصول إلى النطاقات والمشاريع المهجورة ذات القيمة العالية قبل الجميع.
+        </p>
+        
+        <div class="flex flex-col md:flex-row gap-4 mb-20">
+            <button class="bg-white text-black font-bold py-4 px-10 rounded-lg hover:bg-cyan-400 transition-all text-lg">
+                ابدأ الاستخدام الآن
+            </button>
+            <button class="bg-white/5 border border-white/10 py-4 px-10 rounded-lg hover:bg-white/10 transition-all text-lg">
+                عرض تقرير الأصول (PDF)
+            </button>
+        </div>
 
-    <script>
-        // كود بسيط لتحريك الثقب الدودي في الخلفية
-        const canvas = document.getElementById('wormhole-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        <div class="w-full max-w-4xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden backdrop-blur-xl">
+            <div class="bg-white/10 px-6 py-4 border-b border-white/10 flex justify-between items-center">
+                <span class="font-mono text-sm opacity-50 font-bold">LIVE ACTIVITY FEED</span>
+                <span class="text-xs text-cyan-400">GLOBAL SEARCH ACTIVE</span>
+            </div>
+            <div class="p-6 text-right space-y-4 font-mono text-sm">
+                <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                    <span class="text-green-400">[FOUND] crypto-***.io</span>
+                    <span class="opacity-50">Est. Value: $4,200</span>
+                    <span class="text-xs opacity-30">2 mins ago</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                    <span class="text-cyan-400">[ANALYZING] tech-***.com</span>
+                    <span class="opacity-50">Checking Backlinks...</span>
+                    <span class="text-xs opacity-30">Just now</span>
+                </div>
+                <div class="flex justify-between items-center opacity-40">
+                    <span>[SCANNING] 14,000+ domains in queue</span>
+                    <span>Region: US/Europe</span>
+                    <span class="text-xs opacity-30">Active</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        let stars = [];
-        for(let i=0; i<200; i++) {
-            stars.push({
-                x: Math.random() * canvas.width - canvas.width/2,
-                y: Math.random() * canvas.height - canvas.height/2,
-                z: Math.random() * canvas.width
-            });
-        }
+    <footer class="py-10 text-center border-t border-white/10 opacity-30 text-xs">
+        &copy; 2026 NEXUS O2 ENTERPRISE. ALL RIGHTS RESERVED.
+    </footer>
 
-        function draw() {
-            ctx.fillStyle = 'black';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.translate(canvas.width/2, canvas.height/2);
-            
-            stars.forEach(s => {
-                s.z -= 5;
-                if(s.z <= 0) s.z = canvas.width;
-                let sx = (s.x / s.z) * canvas.width;
-                let sy = (s.y / s.z) * canvas.width;
-                let size = (1 - s.z / canvas.width) * 5;
-                ctx.fillStyle = '#00f2ff';
-                ctx.beginPath();
-                ctx.arc(sx, sy, size, 0, Math.PI*2);
-                ctx.fill();
-            });
-
-            ctx.translate(-canvas.width/2, -canvas.height/2);
-            requestAnimationFrame(draw);
-        }
-        draw();
-    </script>
 </body>
 </html>
