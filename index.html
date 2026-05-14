@@ -1,83 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS GHOST | GLOBAL RADAR</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --cyan: #00f2ff; --bg: #010409; }
-        body { background-color: var(--bg); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(0, 242, 255, 0.1); }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        .live-dot { width: 8px; height: 8px; background: #39ff14; border-radius: 50%; animation: pulse 2s infinite; }
-    </style>
-</head>
-<body class="flex min-h-screen">
+Design a premium futuristic SaaS landing page and dashboard UI for a startup called “ConvertIQ”.
 
-    <aside class="w-72 border-r border-white/5 p-8 hidden lg:flex flex-col glass">
-        <h1 class="text-2xl font-black italic text-cyan-400 mb-12">NEXUS GHOST</h1>
-        <nav class="space-y-6 flex-1">
-            <div class="opacity-40 text-[10px] font-bold uppercase tracking-widest">Navigation</div>
-            <a href="#" class="block text-cyan-400 font-bold">RADAR DASHBOARD</a>
-            <a href="#" class="block opacity-60 hover:opacity-100 transition-all">SYSTEM LOGS</a>
-            <div class="pt-10 opacity-40 text-[10px] font-bold uppercase tracking-widest">Status</div>
-            <div class="flex items-center gap-2"><div class="live-dot"></div> <span class="text-xs font-bold">CORE ONLINE</span></div>
-        </nav>
-    </aside>
+The product is an advanced AI-powered Conversion Leak Detector for eCommerce stores. It analyzes online stores and detects hidden conversion problems that cause businesses to lose customers and revenue.
 
-    <main class="flex-1 p-8 lg:p-16 max-w-5xl mx-auto h-screen overflow-y-auto">
-        <header class="flex justify-between items-center mb-16">
-            <div class="text-xl font-black lg:hidden">NEXUS</div>
-            <div class="bg-cyan-500/10 border border-cyan-500/30 px-4 py-2 rounded-full text-cyan-400 text-[10px] font-bold tracking-widest uppercase">Stealth Mode Active</div>
-        </header>
+STYLE:
+- Ultra modern SaaS aesthetic
+- Dark futuristic interface
+- Luxury tech startup feel
+- Minimal but powerful
+- Highly polished and premium
+- Similar quality level to Stripe, Linear, Vercel, and modern AI startups
+- Clean spacing and strong visual hierarchy
+- Smooth gradients and subtle glassmorphism
+- Neon glow accents
+- Elegant shadows and reflections
+- Visually impressive enough to look like a $50M startup
 
-        <section class="mb-20">
-            <h2 class="text-6xl font-black tracking-tighter mb-4">THE <span class="text-cyan-400">RADAR</span></h2>
-            <p class="text-slate-400 text-lg">Live AI-filtered high-value assets from the digital void.</p>
-        </section>
+COLOR PALETTE:
+- Main background: deep black / midnight blue
+- Primary accent: electric purple + blue gradient
+- Secondary accents: neon cyan and magenta
+- Cards: dark glass panels with soft borders
+- Text: bright white with soft gray secondary text
+- Important metrics: green, orange, red highlights
 
-        <div id="assets-container" class="space-y-8">
-            <p class="text-center opacity-30 mono">Establishing neural link to Render Core...</p>
-        </div>
+TYPOGRAPHY:
+- Bold modern sans-serif
+- Large hero typography
+- Clean enterprise dashboard labels
+- Strong readability and spacing
 
-        <footer class="mt-32 opacity-20 text-[10px] mono text-center pb-10 uppercase tracking-widest">
-            &copy; 2026 NEXUS ENTERPRISE // TOBRUK CORE // SUDAN UNIT
-        </footer>
-    </main>
+LANDING PAGE STRUCTURE:
 
-    <script>
-        const API_URL = "https://mg-nexus-radar.onrender.com/api/leads";
+1. HERO SECTION
+- Large headline:
+  “Stop Losing Customers. Start Fixing Leaks.”
+- Subheadline explaining that ConvertIQ detects hidden revenue leaks in eCommerce stores using AI-powered analysis.
+- Large URL input field:
+  “Enter your store URL”
+- Large glowing CTA button:
+  “Analyze My Store”
+- Background should include subtle animated particles, glowing grid, or wave effects.
 
-        async function fetchLeads() {
-            try {
-                const response = await fetch(API_URL);
-                const leads = await response.json();
-                const container = document.getElementById('assets-container');
-                
-                if (leads.length > 0) {
-                    container.innerHTML = "";
-                    leads.forEach(lead => {
-                        container.innerHTML += `
-                            <div class="glass p-10 rounded-3xl border-l-4 border-cyan-500 hover:scale-[1.01] transition-all">
-                                <div class="flex justify-between items-center mb-6">
-                                    <span class="text-[10px] font-bold text-cyan-400 mono uppercase">${lead.sector}</span>
-                                    <span class="text-[10px] opacity-40 mono">${lead.time}</span>
-                                </div>
-                                <h3 class="text-3xl font-bold mb-4 tracking-tight">${lead.title}</h3>
-                                <p class="text-sm text-slate-400 mb-8 italic">${lead.analysis}</p>
-                                <a href="${lead.link}" target="_blank" class="block w-full py-4 bg-white text-black font-black rounded-xl text-center uppercase text-xs tracking-widest hover:bg-cyan-400 transition-all">Secure Asset</a>
-                            </div>
-                        `;
-                    });
-                }
-            } catch (e) { console.log("Searching..."); }
-        }
+2. LIVE DASHBOARD PREVIEW
+Show a realistic analytics dashboard preview with:
+- Conversion Score
+- Estimated Revenue Lost
+- Critical Leaks Found
+- Mobile Performance Score
+- Trust Signals Score
+- Funnel Health
+- Charts and graphs
+- AI recommendations cards
+- Mobile preview mockup
+- Highlighted issues with impact labels like:
+  “High Impact”
+  “Medium Impact”
 
-        setInterval(fetchLeads, 15000);
-        fetchLeads();
-    </script>
-</body>
-</html>
+3. FEATURES SECTION
+Feature cards with futuristic icons:
+- AI Conversion Analysis
+- Mobile UX Detection
+- Checkout Friction Detection
+- Trust Signal Analysis
+- Competitor Benchmarking
+- Revenue Leak Reports
+
+4. HOW IT WORKS
+Three futuristic steps:
+1. Enter Store URL
+2. AI Scans Your Store
+3. Get Revenue Leak Report
+
+5. TESTIMONIALS
+Fake premium-looking founder and agency testimonials.
+Clean luxury SaaS styling.
+
+6. FINAL CTA SECTION
+Large glowing CTA:
+“Discover What’s Killing Your Conversions”
+
+DASHBOARD UI DETAILS:
+- Glassmorphism cards
+- Beautiful charts
+- Circular progress meters
+- Heatmap style visuals
+- AI recommendation feed
+- Revenue impact estimation
+- Store screenshots
+- Mobile optimization analysis
+- Enterprise analytics feel
+
+IMPORTANT DESIGN NOTES:
+- Make the UI look believable and functional, not conceptual.
+- It should feel like a real startup product.
+- Focus heavily on perceived value and visual sophistication.
+- The dashboard should instantly create a “wow” effect.
+- Add subtle futuristic animations and glowing effects.
+- Avoid generic template appearance.
+- The interface should look expensive and investor-ready.
+
+OUTPUT:
+Generate a complete high-fidelity SaaS website and dashboard interface for ConvertIQ with multiple sections visible in one screen composition.
