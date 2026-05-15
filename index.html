@@ -3,68 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConvertIQ | AI Conversion Intelligence</title>
+    <title>ConvertIQ | AI Conversion Intelligence Suite</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --purple: #8b5cf6; --cyan: #06b6d4; --bg: #020617; }
-        body { background: var(--bg); color: white; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
-        .hero-glow { background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15), transparent 70%); }
-        .glass { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .neon-border { border-bottom: 1px solid rgba(6, 182, 212, 0.3); }
-        .animate-scan { border-right: 2px solid var(--cyan); animation: typing 1s steps(20) infinite alternate; }
-        @keyframes typing { from { width: 0; } to { width: 100%; } }
+        :root { --purple: #8b5cf6; --cyan: #06b6d4; --bg: #030712; }
+        body { background: var(--bg); color: #f3f4f6; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        .premium-glow { background: radial-gradient(circle at 50% -20%, rgba(139, 92, 246, 0.2), transparent 60%); }
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .inner-glow { box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1); }
     </style>
 </head>
-<body class="hero-glow min-h-screen">
+<body class="premium-glow min-h-screen pb-24">
 
-    <nav class="flex justify-between items-center p-8 max-w-7xl mx-auto neon-border">
-        <div class="text-2xl font-extrabold tracking-tighter italic">Convert<span class="text-cyan-400">IQ</span></div>
-        <div class="hidden md:flex gap-8 text-xs font-bold uppercase tracking-widest opacity-60">
-            <a href="#" class="hover:text-cyan-400 transition">Solutions</a>
-            <a href="#" class="hover:text-cyan-400 transition">Pricing</a>
-            <a href="#" class="hover:text-cyan-400 transition">Enterprise</a>
+    <nav class="flex justify-between items-center p-6 max-w-7xl mx-auto border-b border-white/5 mb-16">
+        <div class="text-xl font-extrabold tracking-tighter italic text-white">Convert<span class="text-cyan-400">IQ</span></div>
+        <div class="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest text-slate-400">
+            <a href="#" class="hover:text-white transition">Platform</a>
+            <a href="#" class="hover:text-white transition">Leak Radar</a>
+            <a href="#" class="hover:text-white transition">Enterprise</a>
         </div>
-        <button class="bg-white text-black px-6 py-2 rounded-full text-xs font-black uppercase italic hover:bg-cyan-400 transition">Contact Sales</button>
+        <div class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[10px] mono text-slate-400 tracking-wider">ENGINE v2.5</span>
+        </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto text-center pt-32 px-6">
-        <div class="inline-block px-4 py-1 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[10px] font-black uppercase mb-8">AI-Powered Conversion Audit</div>
-        <h1 class="text-7xl font-extrabold tracking-tighter mb-8 leading-none">Stop Losing Customers. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 italic">Start Fixing Leaks.</span></h1>
-        <p class="text-slate-400 text-xl mb-12 max-w-2xl mx-auto">ConvertIQ uses enterprise-grade AI to uncover hidden revenue leaks in your store's UX and checkout flow.</p>
+    <main class="max-w-5xl mx-auto text-center px-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-[10px] font-bold uppercase tracking-widest mb-8">
+            ✨ Next-Gen UX Leak Detection
+        </div>
+        <h1 class="text-6xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-none text-white">
+            Stop Losing Customers. <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 italic">Start Fixing Leaks.</span>
+        </h1>
+        <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+            ConvertIQ scans your eCommerce infrastructure in real-time to locate hidden friction points silently burning your advertising budget.
+        </p>
 
-        <div class="glass p-2 rounded-2xl flex flex-col md:flex-row gap-2 max-w-2xl mx-auto shadow-2xl">
-            <input id="storeUrl" type="text" placeholder="Enter your store URL (e.g. mystore.com)" class="flex-1 bg-transparent px-6 py-4 outline-none text-sm mono">
-            <button onclick="startAnalysis()" class="bg-gradient-to-r from-purple-600 to-cyan-600 px-8 py-4 rounded-xl font-black uppercase italic text-sm hover:scale-105 transition">Analyze My Store</button>
+        <div class="glass-card p-3 rounded-2xl flex flex-col md:flex-row gap-3 max-w-2xl mx-auto shadow-2xl mb-24 inner-glow">
+            <input id="storeUrl" type="text" placeholder="Enter store URL (e.g., brandsite.com)" 
+                   class="flex-1 bg-slate-950/80 text-cyan-400 font-semibold px-6 py-4 rounded-xl border border-white/5 outline-none text-sm mono placeholder-slate-500 focus:border-cyan-500/50 transition-all">
+            <button onclick="startAnalysis()" class="bg-gradient-to-r from-purple-600 to-cyan-600 text-white px-8 py-4 rounded-xl font-extrabold uppercase italic text-xs tracking-wider hover:opacity-90 transition-all shadow-lg active:scale-95">
+                Analyze Store Flow
+            </button>
         </div>
 
-        <div id="loading-screen" class="hidden mt-20">
-            <div class="max-w-md mx-auto space-y-4">
-                <div class="text-xs mono text-cyan-400 animate-pulse uppercase tracking-widest" id="status-text">Scanning Mobile UX...</div>
-                <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
-                    <div id="progress-bar" class="bg-cyan-400 h-full w-0 transition-all duration-500"></div>
+        <div id="loading-screen" class="hidden my-20 max-w-md mx-auto glass-card p-8 rounded-2xl border border-cyan-500/20">
+            <div class="space-y-4">
+                <div class="flex justify-between text-[11px] mono text-cyan-400 uppercase tracking-widest">
+                    <span id="status-text">Initializing Core...</span>
+                    <span id="progress-num">0%</span>
+                </div>
+                <div class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="bg-gradient-to-r from-purple-500 to-cyan-500 h-full w-0 transition-all duration-300"></div>
                 </div>
             </div>
         </div>
 
-        <div id="result-area" class="hidden mt-20 text-left space-y-8 animate-in fade-in duration-1000">
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glass p-8 rounded-3xl border-t-4 border-purple-500">
-                    <div class="text-[10px] font-bold opacity-40 uppercase mb-2">Conversion Score</div>
-                    <div class="text-5xl font-black text-purple-400" id="score">--</div>
+        <div id="result-area" class="hidden text-left space-y-8 animate-in fade-in duration-700">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-purple-500 shadow-xl">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">UX Optimization Score</div>
+                    <div class="text-5xl font-black text-white" id="score">--</div>
+                    <div class="text-[11px] text-purple-400 mt-2 mono">Below industry benchmark</div>
                 </div>
-                <div class="glass p-8 rounded-3xl border-t-4 border-cyan-500">
-                    <div class="text-[10px] font-bold opacity-40 uppercase mb-2">Revenue Potential</div>
-                    <div class="text-5xl font-black text-cyan-400" id="potential">--</div>
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-cyan-500 shadow-xl">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Recoverable Revenue Loss</div>
+                    <div class="text-5xl font-black text-white" id="potential">--</div>
+                    <div class="text-[11px] text-cyan-400 mt-2 mono">Estimated annual leakage</div>
                 </div>
-                <div class="glass p-8 rounded-3xl border-t-4 border-magenta-500">
-                    <div class="text-[10px] font-bold opacity-40 uppercase mb-2">Trust Signal</div>
-                    <div class="text-5xl font-black text-pink-500">High</div>
+                <div class="glass-card p-8 rounded-3xl border-l-4 border-pink-500 shadow-xl">
+                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Friction Severity</div>
+                    <div class="text-5xl font-black text-pink-500 uppercase tracking-tight text-3xl pt-2">Critical</div>
+                    <div class="text-[11px] text-pink-400 mt-2 mono">Immediate action required</div>
                 </div>
             </div>
-            <div class="glass p-10 rounded-3xl">
-                <h3 class="text-2xl font-black mb-6 italic">AI Analysis Report</h3>
-                <p id="analysis-text" class="text-slate-300 leading-relaxed mono text-sm"></p>
+
+            <div class="glass-card p-10 rounded-3xl shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-6 opacity-5 text-7xl font-black italic tracking-tighter uppercase select-none">REPORTS</div>
+                <h3 class="text-2xl font-extrabold text-white mb-6 tracking-tight flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Enterprise Intelligence Audit
+                </h3>
+                <div class="border-t border-white/5 pt-6">
+                    <p id="analysis-text" class="text-slate-300 leading-relaxed text-sm whitespace-pre-line bg-slate-950/40 p-6 rounded-2xl border border-white/5 font-medium"></p>
+                </div>
             </div>
         </div>
     </main>
@@ -72,23 +96,27 @@
     <script>
         async function startAnalysis() {
             const url = document.getElementById('storeUrl').value;
-            if(!url) return alert("Please enter a URL");
+            if(!url) return alert("Please specify a target store URL.");
 
-            // UI Transitions
             document.getElementById('loading-screen').classList.remove('hidden');
             document.getElementById('result-area').classList.add('hidden');
             
-            const statuses = ["Mapping User Journey...", "Detecting Friction...", "Analyzing Checkout...", "Generating AI Report..."];
+            const steps = [
+                "Deconstructing Document Object Model...",
+                "Evaluating Mobile Layout Fluidity...",
+                "Simulating Checkout Pipeline Friction...",
+                "Compiling Deep-Learning CRO Recommendations..."
+            ];
+            
             let progress = 0;
-
-            for(let s of statuses) {
-                document.getElementById('status-text').innerText = s;
+            for(let i = 0; i < steps.length; i++) {
+                document.getElementById('status-text').innerText = steps[i];
                 progress += 25;
                 document.getElementById('progress-bar').style.width = progress + "%";
-                await new Promise(r => setTimeout(r, 1500));
+                document.getElementById('progress-num').innerText = progress + "%";
+                await new Promise(r => setTimeout(r, 1200));
             }
 
-            // Call Backend
             try {
                 const response = await fetch(`https://mg-nexus-radar.onrender.com/api/analyze?url=${url}`);
                 const data = await response.json();
@@ -97,10 +125,11 @@
                 document.getElementById('result-area').classList.remove('hidden');
                 
                 document.getElementById('score').innerText = data.score + "%";
-                document.getElementById('potential').innerText = "+" + data.potential;
+                document.getElementById('potential').innerText = data.potential;
                 document.getElementById('analysis-text').innerText = data.analysis;
             } catch (e) {
-                alert("Core Offline. Please ensure Render is live.");
+                alert("Core processing engine response timed out. Ensure backend node is active.");
+                document.getElementById('loading-screen').classList.add('hidden');
             }
         }
     </script>
